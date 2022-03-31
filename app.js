@@ -37,7 +37,12 @@ computed: {
     },
     finishedTodos() {
         return this.todos.filter(todo => todo.completed === true)
+    },
+    isEmpty() {
+        const numberOfTodos = this.todos.length
+        if (numberOfTodos > 0) {
+            return true;
+        } else return false;
     }
-
 }
 }).mount('#app')

@@ -13,7 +13,7 @@
 
 <body>
     <div id="app" class="container d-flex flex-row flex-wrap justify-content-center align-items-center">
-        <div id="unfinishedTodos" class="todos-wrapper p-4 mx-2">
+        <div v-if="isEmpty" id="unfinishedTodos" class="todos-wrapper p-4 mx-2">
             <!-- render todos -->
             <div>
                 <h1>Unfinished Todos</h1>
@@ -25,7 +25,7 @@
                 </li>
             </ul>
         </div>
-        <div id="finishedTodos" class="todos-wrapper p-4 mx-2">
+        <div v-if="isEmpty" id="finishedTodos" class="todos-wrapper p-4 mx-2">
             <!-- render todos -->
             <div>
                 <h1>Finished Todos</h1>
