@@ -12,21 +12,35 @@
 </head>
 
 <body>
-    <div id="app" class="container d-flex flex-column align-items-center">
-        <div id="todo-app" class="p-4">
+    <div id="app" class="container d-flex flex-row flex-wrap justify-content-center align-items-center">
+        <div id="unfinishedTodos" class="todos-wrapper p-4 mx-2">
             <!-- render todos -->
             <div>
-                <h1>Todo List</h1>
-                <p class="text"> Todos yet finished: {{ unfinishedTodos }}</p>
+                <h1>Unfinished Todos</h1>
             </div>
             <ul class="text">
-                <li class="d-flex justify-content-between m-1" v-for="todo in todos" :class="todo.completed ? 'completed' : ''">
+                <li class="d-flex justify-content-between m-1" v-for="todo in unfinishedTodos" :class="todo.completed ? 'completed' : ''">
                     <span @click="toggleTodo(todo)">{{ todo.title }}</span>
-                    <button class="btn btn-primary text-center" @click="removeTodo(todo)"> 🗑</button>
+                    <button class="btn btn-primary" @click="removeTodo(todo)">🗑</button>
                 </li>
             </ul>
         </div>
-        <input type="text" class="input form-control" placeholder="Enter name of todo" v-model="todoTitle">
+        <div id="finishedTodos" class="todos-wrapper p-4 mx-2">
+            <!-- render todos -->
+            <div>
+                <h1>Finished Todos</h1>
+            </div>
+            <ul class="text">
+                <li class="d-flex justify-content-between m-1" v-for="todo in finishedTodos" :class="todo.completed ? 'completed' : ''">
+                    <span @click="toggleTodo(todo)">{{ todo.title }}</span>
+                    <button class="btn btn-primary" @click="removeTodo(todo)">🗑</button>
+                </li>
+            </ul>
+        </div>
+        <p class="text w-100 text-center"> Todos yet finished: {{ unfinishedTodosLeft }}</p>
+        <div class="w-100">
+            <input type="text" class="input form-control" placeholder="Enter name of todo" v-model="todoTitle">
+        </div>
         <button class="btn btn-primary m-2" @click="addTodo(todoTitle)">Add todo</button>
     </div>
 

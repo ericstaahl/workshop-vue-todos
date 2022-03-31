@@ -23,14 +23,21 @@ Vue.createApp({
         }
 },
 computed: {
-    unfinishedTodos() {
-        let unfinishedTodos = 0;
+    unfinishedTodosLeft() {
+        let unfinishedTodosLeft = 0;
         this.todos.forEach(todo => {
             if(todo.completed === false) {
-                unfinishedTodos++
+                unfinishedTodosLeft++
             }
-        });
-        return unfinishedTodos;
+        })
+        return unfinishedTodosLeft
+    },
+    unfinishedTodos() {
+        return this.todos.filter(todo => todo.completed === false)
+    },
+    finishedTodos() {
+        return this.todos.filter(todo => todo.completed === true)
     }
+
 }
 }).mount('#app')
