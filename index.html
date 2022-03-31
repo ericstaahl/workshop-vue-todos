@@ -10,13 +10,16 @@
 </head>
 <body>
     <div id="app" class="container d-flex flex-column align-items-center">
-        <div id="todo-app" class="p-4">
+        <div id="todo-app" class="p-4 overflow-scroll">
             <!-- render todos -->
-            <h1>Todo List</h1>
+            <div>
+                <h1 >Todo List</h1>
+                <p class="text"> Todos yet finished: {{ unfinishedTodos }}</p>
+            </div>
             <ul class="text">
                 <li v-for="todo in todos" :class="todo.completed ? 'completed' : ''" @click="toggleTodo(todo)">
                     {{ todo.title }}
-                </li>
+                <span @click="removeTodo(todo)">Remove</span></li>
             </ul>
         </div>
         <input type="text" class="input form-control" placeholder="Enter name of todo" v-model="todoTitle">
