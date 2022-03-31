@@ -9,6 +9,7 @@ Vue.createApp({
     },
     methods: {
         toggleTodo(todo) {
+            console.log(todo)
             todo.completed = !todo.completed;
         },
         addTodo(title) {
@@ -17,9 +18,7 @@ Vue.createApp({
             this.nextId++
         },
         removeTodo(todo) {
-            console.log("todo id", todo.id)
             const indexOfTodo = this.todos.findIndex(_todo => _todo.id === todo.id)
-            console.log(indexOfTodo)
             this.todos.splice(indexOfTodo, 1)
         }
 },
