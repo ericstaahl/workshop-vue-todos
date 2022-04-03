@@ -19,7 +19,8 @@
                 <h1>Unfinished Todos</h1>
             </div>
             <ul class="text">
-                <li class="d-flex justify-content-between m-1" v-for="todo in unfinishedTodos" :class="todo.completed ? 'completed' : ''">
+                <li class="d-flex justify-content-between m-1" v-for="todo in unfinishedTodos"
+                    :class="todo.completed ? 'completed' : ''">
                     <span @click="toggleTodo(todo)">{{ todo.title }}</span>
                     <button class="btn btn-primary" @click="removeTodo(todo)">🗑</button>
                 </li>
@@ -31,7 +32,8 @@
                 <h1>Finished Todos</h1>
             </div>
             <ul class="text">
-                <li class="d-flex justify-content-between m-1" v-for="todo in finishedTodos" :class="todo.completed ? 'completed' : ''">
+                <li class="d-flex justify-content-between m-1" v-for="todo in finishedTodos"
+                    :class="todo.completed ? 'completed' : ''">
                     <span @click="toggleTodo(todo)">{{ todo.title }}</span>
                     <button class="btn btn-primary" @click="removeTodo(todo)">🗑</button>
                 </li>
